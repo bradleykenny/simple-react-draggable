@@ -11,7 +11,13 @@ const Swimlane = (props: Props) => {
 	const { data } = props;
 	const { items, title } = data;
 
-	const { ref, isActiveDrag } = useSwimlaneDrag();
+	const {
+		isActiveDrag,
+		handleDragOver,
+		handleDragLeave,
+		handleDragEnter,
+		handleDrop,
+	} = useSwimlaneDrag();
 
 	return (
 		<div className="h-full pb-10">
@@ -23,7 +29,10 @@ const Swimlane = (props: Props) => {
 					"h-full bg-slate-200 p-4 flex flex-col gap-4 rounded-md",
 					isActiveDrag && "ring ring-blue-500"
 				)}
-				ref={ref}
+				onDragOver={handleDragOver}
+				onDragLeave={handleDragLeave}
+				onDragEnter={handleDragEnter}
+				onDrop={handleDrop}
 			>
 				{items.map((item, idx) => (
 					<Draggable data={item} key={idx} />
