@@ -1,4 +1,15 @@
-import { BoardLayout } from '@/type/BoardLayout';
-import { createContext } from 'react';
+import { BoardLayout } from "@/type/BoardLayout";
+import { createContext, Dispatch, SetStateAction } from "react";
 
-export const BoardContext = createContext<BoardLayout | null>(null);
+interface IBoardContextProps {
+	board: BoardLayout;
+	setBoard: Dispatch<SetStateAction<BoardLayout>>;
+};
+
+export const BoardContext = createContext<IBoardContextProps>({
+	board: {
+        title: '',
+        swimlanes: []
+    },
+	setBoard: () => {},
+});

@@ -8,12 +8,15 @@ const defaultBoardLayout: BoardLayout = {
 			items: [
 				{
 					title: "Card 1",
+					id: "1",
 				},
 				{
 					title: "Card 2",
+					id: "2",
 				},
 				{
 					title: "Card 3",
+					id: "3",
 				},
 			],
 		},
@@ -22,6 +25,7 @@ const defaultBoardLayout: BoardLayout = {
 			items: [
 				{
 					title: "Card 4",
+					id: "4",
 				},
 			],
 		},
@@ -34,6 +38,7 @@ const defaultBoardLayout: BoardLayout = {
 			items: [
 				{
 					title: "Card 5",
+					id: "5",
 				},
 			],
 		},

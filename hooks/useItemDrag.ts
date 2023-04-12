@@ -18,7 +18,11 @@ const useItemDrag = () => {
 		setIsActiveDrag(false);
 	};
 
-	return { ref, isActiveDrag, handleItemDragStart, handleItemDragEnd };
+	const handleDragEnter = (event: DragEvent<HTMLDivElement>, id: string) => {
+		console.log('enter', id);
+	}
+
+	return { ref, isActiveDrag, handleItemDragStart, handleItemDragEnd, handleDragEnter };
 };
 
 export default useItemDrag;

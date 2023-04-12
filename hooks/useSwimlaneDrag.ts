@@ -12,8 +12,10 @@ const useSwimlaneDrag = () => {
 		setIsActiveDrag(false);
 	};
 
-	const handleDragEnter = (event: DragEvent<HTMLDivElement>) => {
+	const handleDragEnter = (event: DragEvent<HTMLDivElement>, title: string) => {
 		event.preventDefault();
+
+		console.log('swimlane enter...', title)
 	};
 
 	const handleDrop = (event: DragEvent<HTMLDivElement>) => {

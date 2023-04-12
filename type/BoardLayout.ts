@@ -1,5 +1,6 @@
 export interface Item {
     title: string;
+    id: string;
 }
 
 export interface Swimlane {

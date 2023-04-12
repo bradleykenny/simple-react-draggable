@@ -9,7 +9,7 @@ const sacramento = Sacramento({ weight: "400", subsets: ["latin"] });
 interface Props {}
 
 const Board = (props: Props) => {
-	const board = useContext(BoardContext);
+	const { board } = useContext(BoardContext);
 
 	return (
 		<div className="bg-gradient-to-br from-slate-200 to-slate-400 shadow-lg w-full h-full p-1 rounded-lg">

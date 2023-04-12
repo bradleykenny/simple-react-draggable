@@ -26,12 +26,13 @@ const Swimlane = (props: Props) => {
 			</h1>
 			<div
 				className={cn(
-					"h-full bg-slate-200 p-4 flex flex-col gap-4 rounded-md",
-					isActiveDrag && "ring ring-blue-500"
+					"h-full bg-gradient-to-br from-slate-200 to-slate-300 p-4 flex flex-col gap-4 rounded-md transition-all ease-in-out",
+					isActiveDrag && "ring ring-blue-500",
+					isActiveDrag && title === "Completed" && "ring-green-600 from-green-200 to-green-300"
 				)}
 				onDragOver={handleDragOver}
 				onDragLeave={handleDragLeave}
-				onDragEnter={handleDragEnter}
+				onDragEnter={(event) => handleDragEnter(event, title)}
 				onDrop={handleDrop}
 			>
 				{items.map((item, idx) => (
