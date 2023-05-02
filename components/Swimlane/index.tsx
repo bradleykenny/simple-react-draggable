@@ -26,14 +26,14 @@ const Swimlane = (props: Props) => {
 			</h1>
 			<div
 				className={cn(
-					"h-full bg-gradient-to-br from-slate-200 to-slate-300 p-4 flex flex-col gap-4 rounded-md transition-all ease-in-out",
+					"h-full bg-gradient-to-br from-slate-200 to-slate-300 p-4 flex flex-col gap-0 rounded-md transition-all ease-in-out",
 					isActiveDrag && "ring ring-blue-500",
 					isActiveDrag && title === "Completed" && "ring-green-600 from-green-200 to-green-300"
 				)}
 				onDragOver={handleDragOver}
 				onDragLeave={handleDragLeave}
 				onDragEnter={(event) => handleDragEnter(event, title)}
-				onDrop={handleDrop}
+				onDrop={(event) => handleDrop(event, title)}
 			>
 				{items.map((item, idx) => (
 					<Draggable data={item} key={idx} />

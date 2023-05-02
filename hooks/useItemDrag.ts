@@ -2,13 +2,12 @@ import { DragEvent, useRef, useState } from "react";
 
 const useItemDrag = () => {
 	const ref = useRef<HTMLDivElement>(null);
+	
 	const [isActiveDrag, setIsActiveDrag] = useState(false);
+	const [isBeingDraggedOver, setIsBeingDraggedOver] = useState(false);
 
-	const handleItemDragStart = (event: DragEvent<HTMLDivElement>) => {
-		event.dataTransfer.setData(
-			"content",
-			event.nativeEvent.target.outerHTML
-		); // TODO: fix this up properly
+	const handleItemDragStart = (event: DragEvent<HTMLDivElement>, id: string) => {
+		event.dataTransfer.setData("content", id);
 		setTimeout(() => {
 			setIsActiveDrag(true);
 		}, 0);
@@ -19,10 +18,22 @@ const useItemDrag = () => {
 	};
 
 	const handleDragEnter = (event: DragEvent<HTMLDivElement>, id: string) => {
-		console.log('enter', id);
+		setIsBeingDraggedOver(true);
+	};
+
+	const handleDragLeave = () => {
+		setIsBeingDraggedOver(false);
 	}
 
-	return { ref, isActiveDrag, handleItemDragStart, handleItemDragEnd, handleDragEnter };
+	return {
+		ref,
+		isActiveDrag,
+		isBeingDraggedOver,
+		handleItemDragStart,
+		handleItemDragEnd,
+		handleDragEnter,
+		handleDragLeave
+	};
 };
 
 export default useItemDrag;
